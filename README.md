@@ -2,14 +2,8 @@
 
 ## Preparing For The Talk
 
-All tools used in this talk will be leveraged from a docker image defined for this course. 
+This talk will be run using Databricks Community Edition. Please open your Databricks Community Edition account and import the following file: 
 
-All source code will be available in this repo: [`joshuacook/document-clustering`](https://github.com/joshuacook/document-clustering)
+`https://raw.githubusercontent.com/joshuacook/document-clustering/master/notebooks/American%20Passtimes.py`
 
-**Prior to arriving to the class**
-1. Install Docker on your laptop.
-2. Pull the `jupyter/all-spark-notebook` image by running the following command:
-
-   ```
-   $ docker pull jupyter/all-spark-notebook
-   ```
+We will go over this together in the session.
