@@ -1,4 +1,9 @@
 # Databricks notebook source
+from numpy.random import seed
+seed(1010)
+
+# COMMAND ----------
+
 # MAGIC %md ## Implementation in Scikit-Learn
 # MAGIC 
 # MAGIC ![](https://www.evernote.com/l/AAGiYGcKcIxIaJ7sCg97K9JDtUO2dY9mywoB/image.png)
@@ -317,16 +322,24 @@ display(fig)
 # COMMAND ----------
 
 fig, ax = plt.subplots(figsize=(4,4))
-topic_encoded_df[labels==1].plot(kind="scatter", x="topic_2", y="topic_3", ax=ax)
+topic_encoded_df[labels==0].plot(kind="scatter", x="topic_2", y="topic_3", ax=ax)
 display(fig)
 
 # COMMAND ----------
 
-jazz = topic_encoded_df[labels==1]
+jazz = topic_encoded_df[labels==0]
 
 # COMMAND ----------
 
-from sklearn.mixture import GaussianMixture
+vectorizer_jazz = TfidfVectorizer(stop_words='english', preprocessor=no_number_preprocessor)
+bag_of_words_jazz = vectorizer_jazz.fit_transform(jazz.text)
+svd_jazz = TruncatedSVD(n_components=20)
+lsa_jazz = svd_jazz.fit_transform(bag_of_words_jazz)
+encoding_matrix_jazz = pd.DataFrame(svd_jazz.components_,
+                               index=['topic_' + str(i) for i in range(1,21)],
+                               columns=vectorizer_jazz.get_feature_names()).T
+encoding_matrix_jazz["dictionary"] = vectorizer_jazz.get_feature_names()
+list(encoding_matrix_jazz.sort_values('topic_1', ascending=False).head(5).dictionary)
 
 gmm = GaussianMixture(n_components=2)
 gmm.fit(jazz[twenty_topics])
