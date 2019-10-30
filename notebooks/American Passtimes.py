@@ -6,7 +6,7 @@ seed(1010)
 
 # MAGIC %md ## Implementation in Scikit-Learn
 # MAGIC 
-# MAGIC ![](https://www.evernote.com/l/AAGiYGcKcIxIaJ7sCg97K9JDtUO2dY9mywoB/image.png)
+# MAGIC ![](https://www.evernote.com/l/AAGiYGcKcIxIaJ7sCg97K9JDtUO2dY9mywoB/image.png )
 
 # COMMAND ----------
 
@@ -425,5 +425,3 @@ print(list(encoding_matrix_2.sort_values('topic_9', ascending=False).head(5).dic
 print(list(encoding_matrix_2.sort_values('topic_10', ascending=False).head(5).dictionary))
 
 # COMMAND ----------
-
-
