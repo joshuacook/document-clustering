@@ -1,0 +1,8 @@
+.DS_Store
+.bash_history
+.cache/
+.ipynb_checkpoints/
+.ipython/
+.ivy2/
+.jupyter/
+.local/
